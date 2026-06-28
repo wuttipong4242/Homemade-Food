@@ -30,9 +30,16 @@
 
 <body>
 
-<iframe
-  src="https://script.google.com/macros/s/AKfycbzHkNokxQPSQcIaQASLJxvQsuT0cZ-mwkZ8z-WubaPyOdhc1Em_ysCkrRDV_oZiVAv99g/exec">
-</iframe>
+<iframe id="mainAppFrame" src=""></iframe>
+
+<script>
+  // ⚡ กลไกพิเศษ: ดึงพารามิเตอร์ ?v=... จาก GitHub ส่งต่อเข้าไปใน Google Script เพื่อบังคับเคลียร์แคช
+  let currentParams = window.location.search;
+  let googleScriptUrl = "https://script.google.com/macros/s/AKfycbzHkNokxQPSQcIaQASLJxvQsuT0cZ-mwkZ8z-WubaPyOdhc1Em_ysCkrRDV_oZiVAv99g/exec";
+  
+  // สั่งโหลดแอปโดยพ่วงรหัสเคลียร์แคชเข้าไปด้วย
+  document.getElementById('mainAppFrame').src = googleScriptUrl + currentParams;
+</script>
 
 </body>
 </html>
